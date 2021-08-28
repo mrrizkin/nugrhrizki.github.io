@@ -1,24 +1,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rizki Nugraha</title>
-    <link>http://nugrhrizki.github.io/</link>
+    <link>https://nugrhrizki.github.io/</link>
     <description>Recent content on Rizki Nugraha</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>MIT</copyright>
     <lastBuildDate>Sat, 28 Aug 2021 19:48:07 +0700</lastBuildDate>
     
-        <atom:link href="http://nugrhrizki.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://nugrhrizki.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>JavaScript: the weird part</title>
-        <link>http://nugrhrizki.github.io/posts/javascript-the-weird-part/</link>
+        <link>https://nugrhrizki.github.io/posts/javascript-the-weird-part/</link>
         <pubDate>Sat, 28 Aug 2021 19:48:07 +0700</pubDate>
         
-        <guid>http://nugrhrizki.github.io/posts/javascript-the-weird-part/</guid>
-        <description>Rizki Nugraha http://nugrhrizki.github.io/posts/javascript-the-weird-part/ -&lt;p&gt;I keep a little list of these by my desk for my own sick amusement (which is something that my pal oxguin reckons is not a fact to be shared out loud). If you like this little lot, then you would probably enjoy some of the prior art at wtfjs.&lt;/p&gt;
+        <guid>https://nugrhrizki.github.io/posts/javascript-the-weird-part/</guid>
+        <description>Rizki Nugraha https://nugrhrizki.github.io/posts/javascript-the-weird-part/ -&lt;p&gt;I keep a little list of these by my desk for my own sick amusement (which is something that my pal oxguin reckons is not a fact to be shared out loud). If you like this little lot, then you would probably enjoy some of the prior art at wtfjs.&lt;/p&gt;
 &lt;h1 id=&#34;comparison-craziness&#34;&gt;Comparison craziness&lt;/h1&gt;
 &lt;p&gt;Let’s start by making x an array with 0 in it.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;var&lt;/span&gt; x = [&lt;span style=&#34;color:#3677a9&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// [0]
@@ -71,7 +71,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;(! + [] + [] + ![]).length &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// 9
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Wow! Thanks for reading this far. Got any favourite weird parts of Javascript? Share them in the comments.&lt;/p&gt;
 &lt;p&gt;Incidentally, these were all evaluated on spidermonkey 24.2.0. Maybe they won’t work in node/whatever other js engine you are using…&lt;/p&gt;
-- http://nugrhrizki.github.io/posts/javascript-the-weird-part/ - MIT</description>
+- https://nugrhrizki.github.io/posts/javascript-the-weird-part/ - MIT</description>
         </item>
     
     

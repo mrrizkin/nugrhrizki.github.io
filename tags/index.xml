@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Rizki Nugraha</title>
-    <link>http://nugrhrizki.github.io/tags/</link>
+    <link>https://nugrhrizki.github.io/tags/</link>
     <description>Recent content in Tags on Rizki Nugraha</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>MIT</copyright>
-    <lastBuildDate>Sat, 28 Aug 2021 19:48:07 +0700</lastBuildDate><atom:link href="http://nugrhrizki.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Aug 2021 19:48:07 +0700</lastBuildDate><atom:link href="https://nugrhrizki.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fun</title>
-      <link>http://nugrhrizki.github.io/tags/fun/</link>
+      <link>https://nugrhrizki.github.io/tags/fun/</link>
       <pubDate>Sat, 28 Aug 2021 19:48:07 +0700</pubDate>
       
-      <guid>http://nugrhrizki.github.io/tags/fun/</guid>
+      <guid>https://nugrhrizki.github.io/tags/fun/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>http://nugrhrizki.github.io/tags/javascript/</link>
+      <link>https://nugrhrizki.github.io/tags/javascript/</link>
       <pubDate>Sat, 28 Aug 2021 19:48:07 +0700</pubDate>
       
-      <guid>http://nugrhrizki.github.io/tags/javascript/</guid>
+      <guid>https://nugrhrizki.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
