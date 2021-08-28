@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Rizki Nugraha</title>
+    <link>http://nugrhrizki.github.io/tags/javascript/</link>
+    <description>Recent content in javascript on Rizki Nugraha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>MIT</copyright>
+    <lastBuildDate>Sat, 28 Aug 2021 19:48:07 +0700</lastBuildDate><atom:link href="http://nugrhrizki.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript: the weird part</title>
+      <link>http://nugrhrizki.github.io/posts/javascript-the-weird-part/</link>
+      <pubDate>Sat, 28 Aug 2021 19:48:07 +0700</pubDate>
+      
+      <guid>http://nugrhrizki.github.io/posts/javascript-the-weird-part/</guid>
+      <description>I keep a little list of these by my desk for my own sick amusement (which is something that my pal oxguin reckons is not a fact to be shared out loud). If you like this little lot, then you would probably enjoy some of the prior art at wtfjs.
+Comparison craziness Let’s start by making x an array with 0 in it.
+var x = [0] // [0] It should equal itself, which is good.</description>
+    </item>
+    
+  </channel>
+</rss>

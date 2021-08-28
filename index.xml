@@ -1,0 +1,79 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rizki Nugraha</title>
+    <link>http://nugrhrizki.github.io/</link>
+    <description>Recent content on Rizki Nugraha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>MIT</copyright>
+    <lastBuildDate>Sat, 28 Aug 2021 19:48:07 +0700</lastBuildDate>
+    
+        <atom:link href="http://nugrhrizki.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>JavaScript: the weird part</title>
+        <link>http://nugrhrizki.github.io/posts/javascript-the-weird-part/</link>
+        <pubDate>Sat, 28 Aug 2021 19:48:07 +0700</pubDate>
+        
+        <guid>http://nugrhrizki.github.io/posts/javascript-the-weird-part/</guid>
+        <description>Rizki Nugraha http://nugrhrizki.github.io/posts/javascript-the-weird-part/ -&lt;p&gt;I keep a little list of these by my desk for my own sick amusement (which is something that my pal oxguin reckons is not a fact to be shared out loud). If you like this little lot, then you would probably enjoy some of the prior art at wtfjs.&lt;/p&gt;
+&lt;h1 id=&#34;comparison-craziness&#34;&gt;Comparison craziness&lt;/h1&gt;
+&lt;p&gt;Let’s start by making x an array with 0 in it.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;var&lt;/span&gt; x = [&lt;span style=&#34;color:#3677a9&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// [0]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It should equal itself, which is good.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;x == x &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// true
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But it also equals not itself, which is not so good.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;x == !x &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// true
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What about comparing a 3 element array and a string?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#24909d&#34;&gt;Array&lt;/span&gt;(&lt;span style=&#34;color:#3677a9&#34;&gt;3&lt;/span&gt;) == &lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#34;,,&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// true
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ri-iight.&lt;/p&gt;
+&lt;h1 id=&#34;type-twattery&#34;&gt;Type twattery&lt;/h1&gt;
+&lt;p&gt;The type of not a number is, well, a number. Sensible.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;NaN&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// &amp;#34;number&amp;#34;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Well at least that means it ought to be equal to itself, right?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;NaN&lt;/span&gt; == &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;NaN&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// false
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;So much for NaN. I wonder what the type of null is …&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;typeof&lt;/span&gt; &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// &amp;#34;object&amp;#34;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;… but of course it is not actually an instanceof Object&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;instanceof&lt;/span&gt; &lt;span style=&#34;color:#24909d&#34;&gt;Object&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// false
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;So, what is a string then?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;instanceof&lt;/span&gt; &lt;span style=&#34;color:#24909d&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// false
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Uh-huh.&lt;/p&gt;
+&lt;h1 id=&#34;bounds-buffoonery&#34;&gt;Bounds buffoonery&lt;/h1&gt;
+&lt;p&gt;How about a really big number first of all. Wait. What?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#3677a9&#34;&gt;9999999999999999&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// 10000000000000000
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hopefully small numbers make more sense.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#3677a9&#34;&gt;0.1&lt;/span&gt; + &lt;span style=&#34;color:#3677a9&#34;&gt;0.2&lt;/span&gt; == &lt;span style=&#34;color:#3677a9&#34;&gt;0.3&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// false
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I guess not. I bet that max is still bigger than min though.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#24909d&#34;&gt;Math&lt;/span&gt;.max() &amp;gt; &lt;span style=&#34;color:#24909d&#34;&gt;Math&lt;/span&gt;.min() &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// false
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#24909d&#34;&gt;Math&lt;/span&gt;.max() &amp;lt; &lt;span style=&#34;color:#24909d&#34;&gt;Math&lt;/span&gt;.min()  &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// true
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Maybe not.&lt;/p&gt;
+&lt;h1 id=&#34;array-assinity&#34;&gt;Array assinity&lt;/h1&gt;
+&lt;p&gt;Calling + on an empty array and an empty array gives the empty string. Who knew?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;[] + [] &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// &amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;How about an empty array and an empty object?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;[] + {} &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// &amp;#34;[object Object]&amp;#34;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;An empty object and an empty array gives, ummm, 0.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;{} + [] &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// 0
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Whereas an empty object and an empty object is not a number. Which is true, I suppose.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;{} + {} &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// NaN
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;boolean-balderdash&#34;&gt;Boolean balderdash&lt;/h1&gt;
+&lt;p&gt;I’ve heard of that boolean arithmetic. Let’s give it a try.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;true&lt;/span&gt; + &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;true&lt;/span&gt; === &lt;span style=&#34;color:#3677a9&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// true
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;true&lt;/span&gt; - &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;true&lt;/span&gt; === &lt;span style=&#34;color:#3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// true
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ah. It looks like true is equal to one. I’ll just check.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;true&lt;/span&gt; === &lt;span style=&#34;color:#3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// false
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Doh!&lt;/p&gt;
+&lt;h1 id=&#34;and-one-for-luck&#34;&gt;And one for luck&lt;/h1&gt;
+&lt;p&gt;See if you can work out what this will evaluate to&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;(! + [] + [] + ![]).length &lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// 9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Wow! Thanks for reading this far. Got any favourite weird parts of Javascript? Share them in the comments.&lt;/p&gt;
+&lt;p&gt;Incidentally, these were all evaluated on spidermonkey 24.2.0. Maybe they won’t work in node/whatever other js engine you are using…&lt;/p&gt;
+- http://nugrhrizki.github.io/posts/javascript-the-weird-part/ - MIT</description>
+        </item>
+    
+    
+  </channel>
+</rss> 
