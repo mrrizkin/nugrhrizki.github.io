@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html><head>
-	<meta name="generator" content="Hugo 0.87.0" />
-<title>Rizki Nugraha</title>
+<title>Type Checking Against Custom Type on Typescript</title>
 
 
-
-  
 
 
 <meta charset="utf-8">
@@ -13,16 +10,18 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="Rizki Nugraha Blog about Programming, Linux, Electrical and other things he is interested in">
+<meta name="description" content="Typescript allows us to create our own function, that it will understand, and will narrow the type. A type guard is some expression that performs a runtime check that guarantees the type in some scope">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
 
 
-<meta property="og:title" content="Rizki Nugraha" />
-<meta property="og:description" content="Rizki Nugraha Blog about Programming, Linux, Electrical and other things he is interested in" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://nugrhrizki.github.io/" /><meta property="og:site_name" content="Rizki Nugraha" />
+<meta property="og:title" content="Type Checking Against Custom Type on Typescript" />
+<meta property="og:description" content="Typescript allows us to create our own function, that it will understand, and will narrow the type. A type guard is some expression that performs a runtime check that guarantees the type in some scope" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nugrhrizki.github.io/posts/type-checking-against-custom-type-typescript/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-29T22:14:38+07:00" />
+<meta property="article:modified_time" content="2021-08-29T22:14:38+07:00" /><meta property="og:site_name" content="Rizki Nugraha" />
 
 
 
@@ -30,8 +29,8 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Rizki Nugraha"/>
-<meta name="twitter:description" content="Rizki Nugraha Blog about Programming, Linux, Electrical and other things he is interested in"/>
+<meta name="twitter:title" content="Type Checking Against Custom Type on Typescript"/>
+<meta name="twitter:description" content="Typescript allows us to create our own function, that it will understand, and will narrow the type. A type guard is some expression that performs a runtime check that guarantees the type in some scope"/>
 
 
 
@@ -67,6 +66,10 @@
 
 
 
+  
+    <script src="/js/toc.js"></script>
+  
+
 
 
 
@@ -86,7 +89,7 @@
 <body>
     	<div id="app"><div ref="sideContainer" class="side-container">
     
-    <a class="a-block nav-head active" href="https://nugrhrizki.github.io/">
+    <a class="a-block nav-head false" href="https://nugrhrizki.github.io/">
     
         <div class="nav-title">
             Rizki Nugraha
@@ -104,9 +107,11 @@
             
             
             
+                
             
             
-            <a class="a-block nav-link-item false" href="/posts">
+            
+            <a class="a-block nav-link-item active" href="/posts">
                 Archive
             </a>
             
@@ -162,6 +167,60 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 </div><div ref="extraContainer" class="extra-container">
     
     
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#the-problem" onclick="onNavClick(`#the-problem-nav`)" id="the-problem-nav">
+									The Problem
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#my-solution" onclick="onNavClick(`#my-solution-nav`)" id="my-solution-nav">
+									My Solution
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+    
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
             <i class="material-icons pagination-action-icon">
@@ -179,8 +238,6 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
         </a>
         
         
-        
-        
     </div>
 </div>
 <div class="single-column-drawer-container" ref="drawer"
@@ -193,9 +250,11 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 
                 
                 
+                    
                 
                 
-                <a class="a-block drawer-menu-item false" href="/posts">
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
                     Archive
                 </a>
                 
@@ -230,6 +289,60 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 </a>
                 
             
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#the-problem" onclick="onNavClick(`#the-problem-nav`)" id="the-problem-nav">
+									The Problem
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#my-solution" onclick="onNavClick(`#my-solution-nav`)" id="my-solution-nav">
+									My Solution
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
             
         </div>
     </div>
@@ -272,112 +385,161 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 </div>
 
             <div id="content">
-
 <div ref="streamContainer" class="stream-container">
-    <div class="post-list-container post-list-container-no-background">
-        
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
             
-            <a href="https://nugrhrizki.github.io/posts/type-checking-against-custom-type-typescript/" class="a-block">
-                <div class="post-item-wrapper">
-                    <div class="post-item post-item-no-divider">
-                        <div class="post-item-info-wrapper">
-                            <div class="post-item-title">
-                                Type Checking Against Custom Type on Typescript
-                            </div>
-                            <div class="post-item-summary">
-                                Typescript allows us to create our own function, that it will understand, and will narrow the type. A type guard is some expression that performs a runtime check that guarantees the type in some scope
-                            </div>
-                            <div class="post-item-meta">
-    2021-08-29
-    &emsp;
-    
-    
-    <i class="material-icons" style="font-size:10px">schedule</i>
-    
+            
+            
+                
+            
 
-    
-    
+            <div class="post-head-wrapper"
+                
+                    
+                    
+                    style="background-image: url('https://www.azavea.com/wp-content/uploads/2020/10/2020-10-08_run-time-typescript.jpg')"
+                    
+                
+            >
+                <div class="post-title">
+                    Type Checking Against Custom Type on Typescript
+                    
+                    <div class="post-subtitle">
+                        Typescript allows us to create our own function, that it will understand, and will narrow the type. A type guard is some expression that performs a runtime check that guarantees the type in some scope
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2021-08-29 22:14
+                        </time>
+                        
 
-    
-    49 s
-    
-    
-    &emsp;
-    
-</div>
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/programming">Programming</a>
+                                &nbsp;
+                        
 
-                        </div>
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/typescript">typescript</a>
+                                &nbsp;
+                            
+                                <a href="/tags/tips">tips</a>
+                                &nbsp;
+                            
                         
                         
+                            <i class="material-icons" style="">schedule</i>
                             
-                            <div class="post-item-image-wrapper">
-                            <div class="post-item-image"
+
                             
-                                 style="background-image: url('https://www.azavea.com/wp-content/uploads/2020/10/2020-10-08_run-time-typescript.jpg')"
                             
-                            ></div>
-                            </div>
+
+                            
+                            49 s.
                         
                     </div>
                 </div>
+            </div>
             
-        
-            
-            <a href="https://nugrhrizki.github.io/posts/javascript-the-weird-part/" class="a-block">
-                <div class="post-item-wrapper">
-                    <div class="post-item post-item-no-divider">
-                        <div class="post-item-info-wrapper">
-                            <div class="post-item-title">
-                                JavaScript: the weird part
-                            </div>
-                            <div class="post-item-summary">
-                                Javascript. Love it or hate it it seems to have become the defacto virtual machine of the internet that Java was supposed to be. And it is odd. Like properly odd. This is a short collection of some weird things that I have noticed about it.
-                            </div>
-                            <div class="post-item-meta">
-    2021-08-28
-    &emsp;
-    
-    
-    <i class="material-icons" style="font-size:10px">schedule</i>
-    
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <blockquote>
+<p><strong>NOTE!</strong>: There are many solutions to this problem. but this is my approach to solve the problem i&rsquo;m facing</p>
+</blockquote>
+<h1 id="the-problem">The Problem</h1>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-typescript" data-lang="typescript"><span style="color:#6ab825;font-weight:bold">type</span> StringType = {
+  baz: <span style="color:#6ab825;font-weight:bold">string</span>;
+}
 
-    
-    
+<span style="color:#6ab825;font-weight:bold">type</span> ObjectType = {
+  foo: <span style="color:#6ab825;font-weight:bold">string</span>;
+  bar: <span style="color:#6ab825;font-weight:bold">number</span>;
+}
 
-    
-    1 min
-    
-    57 s
-    
-    
-    &emsp;
-    
-</div>
+<span style="color:#6ab825;font-weight:bold">type</span> MyType = ObjectType | StringType
 
-                        </div>
-                        
-                        
-                            
-                            <div class="post-item-image-wrapper">
-                            <div class="post-item-image"
-                            
-                                 style="background-image: url('https://charlieharvey.org.uk/graphics/js-weird-parts.png')"
-                            
-                            ></div>
-                            </div>
-                        
-                    </div>
+<span style="color:#6ab825;font-weight:bold">const</span> MyFunction = (x: <span style="color:#6ab825;font-weight:bold">MyType</span>): <span style="color:#6ab825;font-weight:bold">string</span> =&gt; {
+  x.foo; <span style="color:#999;font-style:italic">// typescript error
+</span><span style="color:#999;font-style:italic"></span>  x.bar; <span style="color:#999;font-style:italic">// typescript error
+</span><span style="color:#999;font-style:italic"></span>  x.baz; <span style="color:#999;font-style:italic">// typescript error
+</span><span style="color:#999;font-style:italic"></span>  
+  <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#ed9d13">&#34;&#34;</span>
+}
+</code></pre></div><h1 id="my-solution">My Solution</h1>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-typescript" data-lang="typescript"><span style="color:#6ab825;font-weight:bold">type</span> TypeIdentifier = <span style="color:#ed9d13">&#34;STRINGTYPE&#34;</span> | <span style="color:#ed9d13">&#34;OBJECTTYPE&#34;</span>;
+
+<span style="color:#6ab825;font-weight:bold">type</span> StringType = {
+  typeIdentifier: <span style="color:#6ab825;font-weight:bold">TypeIdentifier</span>
+  baz: <span style="color:#6ab825;font-weight:bold">string</span>;
+}
+
+<span style="color:#6ab825;font-weight:bold">type</span> ObjectType = {
+  typeIdentifier: <span style="color:#6ab825;font-weight:bold">TypeIdentifier</span>
+  foo: <span style="color:#6ab825;font-weight:bold">string</span>;
+  bar: <span style="color:#6ab825;font-weight:bold">number</span>;
+}
+
+<span style="color:#6ab825;font-weight:bold">type</span> MyType = ObjectType | StringType;
+
+<span style="color:#6ab825;font-weight:bold">const</span> MyFunction = (x: <span style="color:#6ab825;font-weight:bold">MyType</span>): <span style="color:#6ab825;font-weight:bold">string</span> | <span style="color:#6ab825;font-weight:bold">null</span> =&gt; {
+  <span style="color:#6ab825;font-weight:bold">switch</span>(x.typeIdentifier) {
+    <span style="color:#6ab825;font-weight:bold">case</span> <span style="color:#ed9d13">&#34;STRINGTYPE&#34;</span>:
+      <span style="color:#6ab825;font-weight:bold">const</span> y = x <span style="color:#6ab825;font-weight:bold">as</span> StringType;
+      <span style="color:#6ab825;font-weight:bold">return</span> y.baz;
+    <span style="color:#6ab825;font-weight:bold">case</span> <span style="color:#ed9d13">&#34;OBJECTTYPE&#34;</span>:
+      <span style="color:#6ab825;font-weight:bold">const</span> y = x <span style="color:#6ab825;font-weight:bold">as</span> ObjectType;
+      <span style="color:#6ab825;font-weight:bold">return</span> y.foo;
+    <span style="color:#6ab825;font-weight:bold">default</span>:
+      <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#6ab825;font-weight:bold">null</span>;
+  }
+}
+</code></pre></div><p>what about type guard with <code>is</code>?</p>
+<p>yes type guard is cool, but I read <a href="https://medium.com/ovrsea/checking-the-type-of-an-object-in-typescript-the-type-guards-24d98d9119b0#5da7">this article</a> about type checking with <code>is</code>
+and on the bottom of the article said
+<strong>Warning: a type guard can introduce errors</strong></p>
+<p>therefore I prefer this method because it is more explicit</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2021-08-29</p>
+                    
                 </div>
+            </div>
             
-        
-        </a>
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="https://nugrhrizki.github.io/posts/javascript-the-weird-part/">
+			Previous<br>JavaScript: the weird part
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+                <p style="opacity: 0.6" align="center">
+                    <small>Comments Disabled.</small>
+                </p>
+                
+            </div>
+        </div>
     </div>
 </div>
 
-            </div>
-
-
-<div id="single-column-footer">
+            </div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
 <br>
 Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
@@ -646,6 +808,9 @@ app = new Vue({
             elem.classList.add("table-hover");
         })
 
+        
+        spy();
+        window.addEventListener('scroll', this.debounce(spy, 250, { 'maxWait': 250 }), false);
         
         
     },

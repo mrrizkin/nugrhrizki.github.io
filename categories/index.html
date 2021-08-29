@@ -17,7 +17,7 @@
 
 
 <meta property="og:title" content="Categories" />
-<meta property="og:description" content="My HomePage Description" />
+<meta property="og:description" content="Rizki Nugraha Blog about Programming, Linux, Electrical and other things he is interested in" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nugrhrizki.github.io/categories/" /><meta property="og:site_name" content="Rizki Nugraha" />
 
@@ -28,7 +28,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content="My HomePage Description"/>
+<meta name="twitter:description" content="Rizki Nugraha Blog about Programming, Linux, Electrical and other things he is interested in"/>
 
 
 
@@ -90,7 +90,7 @@
         </div>
         
         <div class="nav-subtitle">
-            Web Developer
+            Robot - Linux - others
         </div>
         
     </a>
@@ -266,7 +266,7 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
     <a href="https://nugrhrizki.github.io/">
         <div class="single-column-header-title">Rizki Nugraha</div>
         
-        <div class="single-column-header-subtitle">Web Developer</div>
+        <div class="single-column-header-subtitle">Robot - Linux - others</div>
         
 
     </a>
@@ -549,6 +549,8 @@ app = new Vue({
         var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         if (night==""){
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                
+                this.toggleDarkMode();
                 
             }
         }else{
