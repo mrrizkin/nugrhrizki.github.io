@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>MIT</copyright>
-    <lastBuildDate>Sun, 29 Aug 2021 22:14:38 +0700</lastBuildDate><atom:link href="https://nugrhrizki.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Aug 2021 13:47:06 +0700</lastBuildDate><atom:link href="https://nugrhrizki.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Power of 10: Rules for Developing Safety-Critical Code</title>
+      <link>https://nugrhrizki.github.io/posts/the-power-of-10-rules-for-developing-safety-critical-code/</link>
+      <pubDate>Mon, 30 Aug 2021 13:47:06 +0700</pubDate>
+      
+      <guid>https://nugrhrizki.github.io/posts/the-power-of-10-rules-for-developing-safety-critical-code/</guid>
+      <description>The Power of 10 Rules were created in 2006 by Gerard J. Holzmann of the NASA/JPL Laboratory for Reliable Software. The rules are intended to eliminate certain C coding practices which make code difficult to review or statically analyze. These rules are a complement to the MISRA C guidelines and have been incorporated into the greater set of JPL coding standards.
+Rules the ten rules are:
+ Avoid complex flow constructs, such as goto and recursion.</description>
+    </item>
+    
     <item>
       <title>Type Checking Against Custom Type on Typescript</title>
       <link>https://nugrhrizki.github.io/posts/type-checking-against-custom-type-typescript/</link>

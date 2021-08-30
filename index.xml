@@ -6,9 +6,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>MIT</copyright>
-    <lastBuildDate>Sun, 29 Aug 2021 22:14:38 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 30 Aug 2021 13:47:06 +0700</lastBuildDate>
     
         <atom:link href="https://nugrhrizki.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>The Power of 10: Rules for Developing Safety-Critical Code</title>
+        <link>https://nugrhrizki.github.io/posts/the-power-of-10-rules-for-developing-safety-critical-code/</link>
+        <pubDate>Mon, 30 Aug 2021 13:47:06 +0700</pubDate>
+        
+        <guid>https://nugrhrizki.github.io/posts/the-power-of-10-rules-for-developing-safety-critical-code/</guid>
+        <description>Rizki Nugraha https://nugrhrizki.github.io/posts/the-power-of-10-rules-for-developing-safety-critical-code/ -&lt;p&gt;The Power of 10 Rules were created in 2006 by &lt;a href=&#34;https://en.wikipedia.org/wiki/Gerard_J._Holzmann&#34;&gt;Gerard J. Holzmann&lt;/a&gt; of the &lt;a href=&#34;https://en.wikipedia.org/wiki/JPL&#34;&gt;NASA/JPL&lt;/a&gt; Laboratory for Reliable Software.
+The rules are intended to eliminate certain C coding practices which make code difficult to review or statically analyze.
+These rules are a complement to the &lt;a href=&#34;https://en.wikipedia.org/wiki/MISRA_C&#34;&gt;MISRA C&lt;/a&gt; guidelines and have been incorporated into the greater set of JPL &lt;a href=&#34;https://en.wikipedia.org/wiki/Coding_conventions&#34;&gt;coding standards&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;rules&#34;&gt;Rules&lt;/h1&gt;
+&lt;p&gt;the ten rules are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Avoid complex flow constructs, such as &lt;a href=&#34;https://en.wikipedia.org/wiki/Goto&#34;&gt;goto&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Recursion_(computer_science)&#34;&gt;recursion&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;All loops must have fixed bounds. This prevents runaway code.&lt;/li&gt;
+&lt;li&gt;Avoid &lt;a href=&#34;https://en.wikipedia.org/wiki/Memory_management#DYNAMIC&#34;&gt;heap memory allocation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Restrict functions to a single printed page.&lt;/li&gt;
+&lt;li&gt;Use a minimum of two &lt;a href=&#34;https://en.wikipedia.org/wiki/Assertion_(software_development)#Assertions_for_run-time_checking&#34;&gt;runtime assertions&lt;/a&gt; per function.&lt;/li&gt;
+&lt;li&gt;Restrict the scope of data to the smallest possible.&lt;/li&gt;
+&lt;li&gt;Check the return value of all non-void functions, or cast to void to indicate the return value is useless.&lt;/li&gt;
+&lt;li&gt;Use the &lt;a href=&#34;https://en.wikipedia.org/wiki/Preprocessor&#34;&gt;preprocessor&lt;/a&gt; sparingly.&lt;/li&gt;
+&lt;li&gt;Limit pointer use to a single &lt;a href=&#34;https://en.wikipedia.org/wiki/Dereference_operator&#34;&gt;dereference&lt;/a&gt;, and do not use &lt;a href=&#34;https://en.wikipedia.org/wiki/Function_pointer&#34;&gt;function pointers&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Compile with all possible warnings active; all warnings should then be addressed before release of the software.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/The_Power_of_10:_Rules_for_Developing_Safety-Critical_Code&#34;&gt;Wikipedia page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://web.eecs.umich.edu/~imarkov/10rules.pdf&#34;&gt;The Power of 10: Rules for Developing Safety-Critical Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+- https://nugrhrizki.github.io/posts/the-power-of-10-rules-for-developing-safety-critical-code/ - MIT</description>
+        </item>
     
     
     
