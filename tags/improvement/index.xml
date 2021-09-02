@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>improvement on Rizki Nugraha</title>
+    <link>https://nugrhrizki.github.io/tags/improvement/</link>
+    <description>Recent content in improvement on Rizki Nugraha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>MIT</copyright>
+    <lastBuildDate>Thu, 02 Sep 2021 18:39:19 +0700</lastBuildDate><atom:link href="https://nugrhrizki.github.io/tags/improvement/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memoization: What, Why, and How</title>
+      <link>https://nugrhrizki.github.io/posts/memoization-what-why-and-how/</link>
+      <pubDate>Thu, 02 Sep 2021 18:39:19 +0700</pubDate>
+      
+      <guid>https://nugrhrizki.github.io/posts/memoization-what-why-and-how/</guid>
+      <description>Recently, I spent an hour with one of my protégés demonstrating some common advanced techniques we use at Webflow. One of the techniques I showed them was memoization. Let&amp;rsquo;s learn what memoization is, why you might use it, and how do we write it from scratch.
+What is Memoization? Memoization is a technique that enhances a function by creating and using a cache to store and retrieve results of that function.</description>
+    </item>
+    
+  </channel>
+</rss>

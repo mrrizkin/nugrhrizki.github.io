@@ -6,9 +6,75 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>MIT</copyright>
-    <lastBuildDate>Mon, 30 Aug 2021 13:47:06 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 02 Sep 2021 18:39:19 +0700</lastBuildDate>
     
         <atom:link href="https://nugrhrizki.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Memoization: What, Why, and How</title>
+        <link>https://nugrhrizki.github.io/posts/memoization-what-why-and-how/</link>
+        <pubDate>Thu, 02 Sep 2021 18:39:19 +0700</pubDate>
+        
+        <guid>https://nugrhrizki.github.io/posts/memoization-what-why-and-how/</guid>
+        <description>Rizki Nugraha https://nugrhrizki.github.io/posts/memoization-what-why-and-how/ -&lt;p&gt;Recently, I spent an hour with one of my protégés demonstrating some common advanced techniques we use at Webflow. One of the techniques I showed them was memoization. Let&amp;rsquo;s learn what memoization is, why you might use it, and how do we write it from scratch.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-memoization&#34;&gt;What is Memoization?&lt;/h1&gt;
+&lt;p&gt;Memoization is a technique that enhances a function by creating and using a &lt;code&gt;cache&lt;/code&gt; to store and retrieve results of that function. Memoization uses the arguments of a function to create a &lt;code&gt;key&lt;/code&gt; for the &lt;code&gt;cache&lt;/code&gt;. The first time a memoized function is called with a set of arguments, those arguments are turned into a &lt;code&gt;key&lt;/code&gt; and the result of the function is stored as the value for that &lt;code&gt;key&lt;/code&gt; in the &lt;code&gt;cache&lt;/code&gt;. Then, on subsequent calls of the function with the same arguments, we can retrieve that previously calculated value from the &lt;code&gt;cache&lt;/code&gt; and return it before we ever do the work of calculating the result. This improves the performance of our function, since hitting the &lt;code&gt;cache&lt;/code&gt; is a constant time operation (&lt;code&gt;O(1)&lt;/code&gt; in big O notation).&lt;/p&gt;
+&lt;h1 id=&#34;how-to-implement-memoization&#34;&gt;How to implement Memoization?&lt;/h1&gt;
+&lt;p&gt;We can use memoization on any pure function and it&amp;rsquo;s not too difficult to implement either. Let&amp;rsquo;s create a higher order function that will allow us to create a memoized version of a pure function.&lt;/p&gt;
+&lt;p&gt;Typically, we want to use memoization on functions with expensive calculations and we&amp;rsquo;ll talk about why later, but for the sake of writing our memoize function, I&amp;rsquo;m going to use a very simple pure function.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;function&lt;/span&gt; add(x, y) {
+	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;return&lt;/span&gt; x + y
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Can&amp;rsquo;t get much simpler than an &lt;code&gt;add&lt;/code&gt; function! Since it&amp;rsquo;s a pure function, we can guarantee that the same inputs always lead to the same output. So if we&amp;rsquo;re able to create a cache that will use the function arguments as a key and store the results of the function as a value, we can retrieve that value from the cache knowing it&amp;rsquo;s the same as the result of running the function.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;function&lt;/span&gt; memoize(fn) {
+	&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// We create a cache inside the closure of the `memoize` function
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// This creates a new cache for each function we pass
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// to `memoize`. We&amp;#39;ll discuss other cache strategies later
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;const&lt;/span&gt; cache = {}
+
+	&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// The goal is to return a function with an identical
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// signature as the one passed in
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;return&lt;/span&gt; (...args) =&amp;gt; {
+		&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// We need to create a key for our cache. A simple way to do this is
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// to join the args with a delimiter that clearly separates arguments
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// This way the arguments (12, 3) don&amp;#39;t create the same key as (1, 23)
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;const&lt;/span&gt; key = args.map(JSON.stringify).join(&lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#39;---&amp;#39;&lt;/span&gt;)
+
+		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;if&lt;/span&gt; (cache[key] !== &lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;undefined&lt;/span&gt;) {
+			&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// Just for our example, let&amp;#39;s make it clear we returned a value
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;// from the cache
+&lt;/span&gt;&lt;span style=&#34;color:#999;font-style:italic&#34;&gt;&lt;/span&gt;			console.log(&lt;span style=&#34;color:#ed9d13&#34;&gt;&amp;#39;from cache&amp;#39;&lt;/span&gt;)
+			&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;return&lt;/span&gt; cache[key]
+		}
+
+		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;const&lt;/span&gt; result = fn(...args)
+		cache[key] = result
+
+		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;return&lt;/span&gt; result
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s break that down. &lt;code&gt;memoize&lt;/code&gt; receives a function as an argument. It then creates a cache in closure. This will store the results of our function in memory to be retrieved later.&lt;/p&gt;
+&lt;p&gt;Next, we return a function that can receive whatever &lt;code&gt;args&lt;/code&gt; the original function receives. Inside of the function we are returning, we create a &lt;code&gt;key&lt;/code&gt; for our cache. In this case, I chose to stringify and join the arguments with a delimiter. This delimiter prevents similar arguments from accidentally being the same &lt;code&gt;key&lt;/code&gt;. Without a delimiter, calling &lt;code&gt;add(2, 34)&lt;/code&gt; and &lt;code&gt;add(23, 4)&lt;/code&gt; would result in the &lt;code&gt;key&lt;/code&gt; &lt;code&gt;234&lt;/code&gt;. We would end up with a mistaken cache hit for the second call, and even worse, our result would be incorrect.&lt;/p&gt;
+&lt;p&gt;Next, if there is a defined value at the &lt;code&gt;cache[key]&lt;/code&gt;, we return it and skip calculating the result. Otherwise, we calculate the &lt;code&gt;result&lt;/code&gt;, store it in the &lt;code&gt;cache&lt;/code&gt;, and then return it.&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s create a memoized &lt;code&gt;add&lt;/code&gt; function and use it.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;const&lt;/span&gt; memoizedAdd = memoize(add)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Seriously. Adding memoization to a pure function is that simple.&lt;/p&gt;
+&lt;h1 id=&#34;why-use-memoization&#34;&gt;Why Use Memoization?&lt;/h1&gt;
+&lt;p&gt;Memoization is a tradeoff exchanging space (memory) for time. The purpose of this tradeoff is to gain a performance benefit by skipping the calculation of the function&amp;rsquo;s result, i.e. save time. Thus, it only makes sense to use memoization where memory is not a concern and the original calculation is both expensive and often called with the same arguments. Our &lt;code&gt;add&lt;/code&gt; function was a bad example. It&amp;rsquo;s not an expensive calculation at all. Let&amp;rsquo;s create a slightly better example.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve used this example before in my writing, but a &lt;code&gt;factorial&lt;/code&gt; function might be a good candidate for memoization. It&amp;rsquo;s recursive, which means that &lt;code&gt;factorial&lt;/code&gt; will be called with the same argument frequently. In fact, if it&amp;rsquo;s ever been called with a number greater than the current argument, it will simply return the value from the cache, since it&amp;rsquo;s already been calculated before. Let&amp;rsquo;s write the factorial function.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d0d0d0;background-color:#202020;-moz-tab-size:2;-o-tab-size:2;tab-size:2&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;const&lt;/span&gt; factorial = memoize((n) =&amp;gt; {
+	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;if&lt;/span&gt; (n === &lt;span style=&#34;color:#3677a9&#34;&gt;0&lt;/span&gt;) {
+		&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#3677a9&#34;&gt;1&lt;/span&gt;
+	}
+
+	&lt;span style=&#34;color:#6ab825;font-weight:bold&#34;&gt;return&lt;/span&gt; n * factorial(n - &lt;span style=&#34;color:#3677a9&#34;&gt;1&lt;/span&gt;)
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Memoization is a trade off of space for time. It&amp;rsquo;s used to cache the result of a function so that the next time it&amp;rsquo;s called with the same arguments, we can just return the answer. We don&amp;rsquo;t need to calculate it again. This technique is useful when we have an expensive calculation that will be called frequently with the same arguments. It&amp;rsquo;s used more often than you might realize and is a useful tool to have in your tool belt.&lt;/p&gt;
+- https://nugrhrizki.github.io/posts/memoization-what-why-and-how/ - MIT</description>
+        </item>
     
     
     

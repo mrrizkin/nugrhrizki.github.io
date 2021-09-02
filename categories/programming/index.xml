@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>MIT</copyright>
-    <lastBuildDate>Mon, 30 Aug 2021 13:47:06 +0700</lastBuildDate><atom:link href="https://nugrhrizki.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Sep 2021 18:39:19 +0700</lastBuildDate><atom:link href="https://nugrhrizki.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memoization: What, Why, and How</title>
+      <link>https://nugrhrizki.github.io/posts/memoization-what-why-and-how/</link>
+      <pubDate>Thu, 02 Sep 2021 18:39:19 +0700</pubDate>
+      
+      <guid>https://nugrhrizki.github.io/posts/memoization-what-why-and-how/</guid>
+      <description>Recently, I spent an hour with one of my protégés demonstrating some common advanced techniques we use at Webflow. One of the techniques I showed them was memoization. Let&amp;rsquo;s learn what memoization is, why you might use it, and how do we write it from scratch.
+What is Memoization? Memoization is a technique that enhances a function by creating and using a cache to store and retrieve results of that function.</description>
+    </item>
+    
     <item>
       <title>The Power of 10: Rules for Developing Safety-Critical Code</title>
       <link>https://nugrhrizki.github.io/posts/the-power-of-10-rules-for-developing-safety-critical-code/</link>
